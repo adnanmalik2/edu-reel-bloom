@@ -192,21 +192,20 @@ function ReelView() {
               </div>
             </div>
 
-            <Link
-              to="/reel/$id"
-              params={{ id: next.id }}
-              className="grid grid-cols-[1fr_auto] border-t border-border"
-            >
-              <div className="h-14 bg-accent text-accent-foreground font-bold text-xs uppercase tracking-[0.2em] hover:brightness-110 transition-colors flex items-center justify-center">
+            <div className="grid grid-cols-[1fr_auto] border-t border-border">
+              <Link
+                to="/reel/$id"
+                params={{ id: next.id }}
+                className="h-14 bg-accent text-accent-foreground font-bold text-xs uppercase tracking-[0.2em] hover:brightness-110 transition-colors flex items-center justify-center"
+              >
                 Next: {next.title} →
-              </div>
+              </Link>
               <div className="flex border-l border-border">
                 <Link
                   to="/reel/$id"
                   params={{ id: prev.id }}
                   aria-label="Previous"
                   className="w-12 grid place-items-center hover:bg-muted transition-colors"
-                  onClick={(e) => e.stopPropagation()}
                 >
                   <ChevronUp className="size-4" />
                 </Link>
@@ -215,12 +214,11 @@ function ReelView() {
                   params={{ id: next.id }}
                   aria-label="Next"
                   className="w-12 grid place-items-center border-l border-border hover:bg-muted transition-colors"
-                  onClick={(e) => e.stopPropagation()}
                 >
                   <ChevronDown className="size-4" />
                 </Link>
               </div>
-            </Link>
+            </div>
           </aside>
         </div>
       </main>
