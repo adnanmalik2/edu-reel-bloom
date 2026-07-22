@@ -186,7 +186,7 @@ function ReelView() {
                 Key Takeaways
               </h3>
               <div className="space-y-6">
-                {reel.takeaways.map((t) => (
+                {reel.takeaways.map((t: { num: string; title: string; body: string }) => (
                   <Takeaway key={t.num} {...t} />
                 ))}
               </div>
