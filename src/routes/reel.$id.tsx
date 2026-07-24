@@ -108,7 +108,7 @@ function ReelView() {
 
             <div className="absolute top-5 left-5 flex flex-col gap-2 pointer-events-none max-w-[85%]">
               <div className="bg-accent text-accent-foreground px-2.5 py-1 text-[10px] font-mono font-bold tracking-tight uppercase rounded-sm animate-pulse-slow w-fit">
-                {reel.lesson} · {reel.title}
+                {reel.category} · {reel.title}
               </div>
               <div className="bg-black/40 backdrop-blur-md px-2.5 py-1.5 text-[11px] font-mono text-white/90 border-l-2 border-accent w-fit">
                 {reel.summary}
