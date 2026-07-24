@@ -72,6 +72,7 @@ function Feed() {
             <IconBtn><Search className="size-4" /></IconBtn>
             <IconBtn><Bell className="size-4" /></IconBtn>
             <IconBtn><Plus className="size-4" /></IconBtn>
+            <ThemeToggle />
           </div>
           <div className="size-9 rounded-full bg-muted grid place-items-center text-xs font-bold ring-1 ring-border">
             F
