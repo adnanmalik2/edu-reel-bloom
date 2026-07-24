@@ -11,6 +11,7 @@ import {
   Heart,
 } from "lucide-react";
 import { reels } from "@/lib/reels-data";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/")({
   head: () => ({
