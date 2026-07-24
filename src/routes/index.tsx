@@ -11,6 +11,7 @@ import {
   Heart,
 } from "lucide-react";
 import { reels } from "@/lib/reels-data";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -71,6 +72,7 @@ function Feed() {
             <IconBtn><Search className="size-4" /></IconBtn>
             <IconBtn><Bell className="size-4" /></IconBtn>
             <IconBtn><Plus className="size-4" /></IconBtn>
+            <ThemeToggle />
           </div>
           <div className="size-9 rounded-full bg-muted grid place-items-center text-xs font-bold ring-1 ring-border">
             F
@@ -178,9 +180,6 @@ function ReelCard({
 
       {/* Bottom: title + curator */}
       <div className="absolute bottom-0 inset-x-0 p-3">
-        <p className="text-[9px] font-mono uppercase tracking-widest text-accent mb-1">
-          {reel.lesson}
-        </p>
         <h3 className={`font-bold tracking-tight text-white leading-tight ${featured ? "text-lg md:text-xl" : "text-sm"}`}>
           {reel.title}
         </h3>

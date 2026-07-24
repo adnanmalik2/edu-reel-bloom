@@ -13,6 +13,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { getReel, reels } from "@/lib/reels-data";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/reel/$id")({
   head: ({ params }) => {
@@ -78,15 +79,18 @@ function ReelView() {
           </Link>
           <span className="hidden md:inline text-border">/</span>
           <span className="hidden md:inline text-[10px] font-mono uppercase tracking-widest text-muted-foreground truncate">
-            {reel.category} · {reel.lesson}
+            {reel.category}
           </span>
         </div>
-        <span className="font-extrabold tracking-tighter text-lg">
-          ETIF
-          <span className="text-accent text-[10px] align-top ml-0.5 font-mono font-medium">
-            LAB
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <span className="font-extrabold tracking-tighter text-lg">
+            ETIF
+            <span className="text-accent text-[10px] align-top ml-0.5 font-mono font-medium">
+              LAB
+            </span>
           </span>
-        </span>
+        </div>
       </nav>
 
       {/* Main */}
@@ -104,7 +108,7 @@ function ReelView() {
 
             <div className="absolute top-5 left-5 flex flex-col gap-2 pointer-events-none max-w-[85%]">
               <div className="bg-accent text-accent-foreground px-2.5 py-1 text-[10px] font-mono font-bold tracking-tight uppercase rounded-sm animate-pulse-slow w-fit">
-                {reel.lesson} · {reel.title}
+                {reel.category} · {reel.title}
               </div>
               <div className="bg-black/40 backdrop-blur-md px-2.5 py-1.5 text-[11px] font-mono text-white/90 border-l-2 border-accent w-fit">
                 {reel.summary}
