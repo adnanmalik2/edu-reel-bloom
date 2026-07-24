@@ -44,7 +44,7 @@ const categories = [
 
 function Feed() {
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-accent/30">
+    <div className="min-h-screen text-foreground selection:bg-accent/30">
       {/* Header */}
       <nav className="h-16 border-b border-border px-4 md:px-8 flex items-center justify-between sticky top-0 z-50 bg-background/80 backdrop-blur-md">
         <div className="flex items-center gap-8 min-w-0">
