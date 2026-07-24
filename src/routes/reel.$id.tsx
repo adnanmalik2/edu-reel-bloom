@@ -79,15 +79,18 @@ function ReelView() {
           </Link>
           <span className="hidden md:inline text-border">/</span>
           <span className="hidden md:inline text-[10px] font-mono uppercase tracking-widest text-muted-foreground truncate">
-            {reel.category} · {reel.lesson}
+            {reel.category}
           </span>
         </div>
-        <span className="font-extrabold tracking-tighter text-lg">
-          ETIF
-          <span className="text-accent text-[10px] align-top ml-0.5 font-mono font-medium">
-            LAB
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <span className="font-extrabold tracking-tighter text-lg">
+            ETIF
+            <span className="text-accent text-[10px] align-top ml-0.5 font-mono font-medium">
+              LAB
+            </span>
           </span>
-        </span>
+        </div>
       </nav>
 
       {/* Main */}
