@@ -13,6 +13,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { getReel, reels } from "@/lib/reels-data";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/reel/$id")({
   head: ({ params }) => {
