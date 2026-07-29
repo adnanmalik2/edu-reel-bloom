@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { reels } from "@/lib/reels-data";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { ProfileMenu } from "@/components/profile-menu";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -74,9 +75,7 @@ function Feed() {
             <IconBtn><Plus className="size-4" /></IconBtn>
             <ThemeToggle />
           </div>
-          <div className="size-9 rounded-full bg-muted grid place-items-center text-xs font-bold ring-1 ring-border">
-            F
-          </div>
+          <ProfileMenu initial="F" />
         </div>
       </nav>
 
