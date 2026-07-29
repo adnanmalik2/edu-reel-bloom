@@ -78,62 +78,97 @@ function ProfilePage() {
       </nav>
 
       {/* Profile hero */}
-      <header className="px-4 md:px-8 pt-10 pb-8 border-b border-border">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-accent mb-4">
-            PROFILE / CURATOR
-          </p>
-          <div className="grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-8 items-start">
+      <header className="relative border-b border-border overflow-hidden">
+        {/* Cover banner */}
+        <div className="relative h-40 md:h-56 overflow-hidden">
+          <img
+            src={profile.featured.poster}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-background" />
+          <div
+            className="absolute inset-0 opacity-[0.35] mix-blend-overlay"
+            style={{
+              backgroundImage:
+                "linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+          <div className="absolute top-4 left-4 md:top-6 md:left-8">
+            <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-accent bg-background/70 backdrop-blur-md rounded-sm px-2 py-1 border border-border inline-flex items-center gap-2">
+              <span className="size-1.5 rounded-full bg-accent animate-pulse-slow" />
+              PROFILE / CURATOR
+            </p>
+          </div>
+        </div>
+
+        <div className="max-w-5xl mx-auto px-4 md:px-8 pb-8 -mt-16 md:-mt-20 relative">
+          <div className="grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-8 items-end">
             {/* Avatar */}
             <div className="relative">
-              <div className="size-28 md:size-32 rounded-2xl bg-gradient-to-br from-accent to-accent/50 grid place-items-center text-4xl font-extrabold text-accent-foreground ring-1 ring-border shadow-[var(--shadow-accent)]">
-                {profile.initials}
+              <div className="p-1 rounded-2xl bg-gradient-to-br from-accent via-accent/40 to-transparent shadow-[var(--shadow-accent)]">
+                <div className="size-28 md:size-36 rounded-xl bg-gradient-to-br from-accent to-accent/60 grid place-items-center text-4xl md:text-5xl font-extrabold text-accent-foreground ring-1 ring-background">
+                  {profile.initials}
+                </div>
               </div>
-              <span className="absolute -bottom-1 -right-1 size-4 rounded-full bg-emerald-500 ring-2 ring-background" />
+              <span className="absolute bottom-1 right-1 flex items-center gap-1 bg-background/95 backdrop-blur-md rounded-full px-2 py-0.5 ring-1 ring-border">
+                <span className="size-2 rounded-full bg-emerald-500 animate-pulse-slow" />
+                <span className="text-[9px] font-mono uppercase tracking-widest">Live</span>
+              </span>
             </div>
 
             {/* Identity */}
-            <div className="min-w-0">
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tighter">
-                {profile.name}
-              </h1>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-sm">
+            <div className="min-w-0 md:pb-2">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h1 className="text-3xl md:text-5xl font-extrabold tracking-tighter">
+                  {profile.name}
+                </h1>
+                <span className="hidden md:inline-flex items-center h-6 px-2 rounded-sm bg-accent/15 text-accent text-[10px] font-mono uppercase tracking-widest border border-accent/30">
+                  Curator
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 text-sm">
                 <span className="font-mono text-accent">@{profile.username}</span>
+                <span className="text-muted-foreground">·</span>
                 <span className="flex items-center gap-1.5 text-muted-foreground">
                   <MapPin className="size-3.5" /> {profile.location}
                 </span>
               </div>
-              <p className="mt-3 text-sm text-muted-foreground max-w-md leading-relaxed">
+              <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-lg leading-relaxed">
                 {profile.bio}
               </p>
-
-              {/* Stats */}
-              <div className="flex gap-6 mt-5">
-                <Stat label="Followers" value={profile.followers} icon={Users} />
-                <Stat label="Following" value={profile.following} icon={Users} />
-                <Stat label="Views" value={profile.totalViews} icon={Eye} />
-              </div>
             </div>
 
             {/* Actions */}
-            <div className="flex flex-col gap-2 w-full md:w-56">
+            <div className="flex flex-col gap-2 w-full md:w-56 md:pb-2">
               <a
                 href={profile.links[0].href}
                 target="_blank"
                 rel="noreferrer"
-                className="h-11 flex items-center justify-center gap-2 rounded-md bg-accent text-accent-foreground text-xs font-mono uppercase tracking-widest font-bold hover:brightness-110 transition"
+                className="group h-11 flex items-center justify-center gap-2 rounded-md bg-accent text-accent-foreground text-xs font-mono uppercase tracking-widest font-bold hover:brightness-110 transition shadow-[var(--shadow-accent)]"
               >
                 <Linkedin className="size-4" /> LinkedIn
+                <span className="opacity-0 group-hover:opacity-100 transition -translate-x-1 group-hover:translate-x-0">→</span>
               </a>
               <div className="grid grid-cols-2 gap-2">
-                <button className="h-10 flex items-center justify-center gap-1.5 rounded-md border border-border hover:border-accent hover:text-accent text-[10px] font-mono uppercase tracking-widest transition">
+                <button className="h-10 flex items-center justify-center gap-1.5 rounded-md border border-border bg-card/40 hover:border-accent hover:text-accent hover:bg-card text-[10px] font-mono uppercase tracking-widest transition">
                   <Pencil className="size-3.5" /> Edit
                 </button>
-                <button className="h-10 flex items-center justify-center gap-1.5 rounded-md border border-border hover:border-accent hover:text-accent text-[10px] font-mono uppercase tracking-widest transition">
+                <button className="h-10 flex items-center justify-center gap-1.5 rounded-md border border-border bg-card/40 hover:border-accent hover:text-accent hover:bg-card text-[10px] font-mono uppercase tracking-widest transition">
                   <BarChart3 className="size-3.5" /> Analytics
                 </button>
               </div>
             </div>
+          </div>
+
+          {/* Stats row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
+            <StatCard label="Followers" value={profile.followers} icon={Users} />
+            <StatCard label="Following" value={profile.following} icon={Users} />
+            <StatCard label="Total Views" value={profile.totalViews} icon={Eye} />
+            <StatCard label="Reels" value={profile.videos.length} icon={Play} />
           </div>
         </div>
       </header>
