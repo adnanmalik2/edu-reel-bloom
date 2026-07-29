@@ -306,7 +306,7 @@ function SectionHeader({ label, count }: { label: string; count: string }) {
   );
 }
 
-function Stat({
+function StatCard({
   label,
   value,
   icon: Icon,
@@ -316,14 +316,17 @@ function Stat({
   icon: React.ComponentType<{ className?: string }>;
 }) {
   return (
-    <div>
-      <div className="flex items-center gap-1.5 text-muted-foreground">
+    <div className="group relative rounded-lg border border-border bg-card/60 backdrop-blur-md p-3 md:p-4 hover:border-accent hover:bg-card transition-all overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/0 via-accent/0 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="relative flex items-center gap-1.5 text-muted-foreground">
         <Icon className="size-3.5" />
         <span className="text-[10px] font-mono uppercase tracking-widest">
           {label}
         </span>
       </div>
-      <div className="text-lg font-bold tracking-tight mt-0.5">{value}</div>
+      <div className="relative text-2xl md:text-3xl font-extrabold tracking-tighter mt-1">
+        {value}
+      </div>
     </div>
   );
 }
