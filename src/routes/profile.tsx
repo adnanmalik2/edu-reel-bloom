@@ -3,7 +3,6 @@ import {
   LayoutGrid,
   Search,
   Bell,
-  Plus,
   Linkedin,
   Instagram,
   Youtube,
@@ -18,6 +17,7 @@ import {
 } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { ProfileMenu } from "@/components/profile-menu";
+import { CreateMenu } from "@/components/create-menu";
 import { profile } from "@/lib/profile-data";
 
 export const Route = createFileRoute("/profile")({
@@ -70,7 +70,7 @@ function ProfilePage() {
             <IconBtn><LayoutGrid className="size-4" /></IconBtn>
             <IconBtn><Search className="size-4" /></IconBtn>
             <IconBtn><Bell className="size-4" /></IconBtn>
-            <IconBtn><Plus className="size-4" /></IconBtn>
+            <CreateMenu />
             <ThemeToggle />
           </div>
           <ProfileMenu initial="F" />
