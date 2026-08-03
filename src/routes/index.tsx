@@ -3,7 +3,6 @@ import {
   LayoutGrid,
   Search,
   Bell,
-  Plus,
   Play,
   Flame,
   Sparkles,
@@ -13,6 +12,7 @@ import {
 import { reels } from "@/lib/reels-data";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { ProfileMenu } from "@/components/profile-menu";
+import { CreateMenu } from "@/components/create-menu";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -72,7 +72,7 @@ function Feed() {
             <IconBtn><LayoutGrid className="size-4" /></IconBtn>
             <IconBtn><Search className="size-4" /></IconBtn>
             <IconBtn><Bell className="size-4" /></IconBtn>
-            <IconBtn><Plus className="size-4" /></IconBtn>
+            <CreateMenu />
             <ThemeToggle />
           </div>
           <ProfileMenu initial="F" />
