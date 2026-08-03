@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ReelIdRouteImport } from './routes/reel.$id'
+import { Route as CreatePostRouteImport } from './routes/create.post'
+import { Route as CreateListRouteImport } from './routes/create.list'
 
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
@@ -28,34 +30,58 @@ const ReelIdRoute = ReelIdRouteImport.update({
   path: '/reel/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreatePostRoute = CreatePostRouteImport.update({
+  id: '/create/post',
+  path: '/create/post',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreateListRoute = CreateListRouteImport.update({
+  id: '/create/list',
+  path: '/create/list',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/profile': typeof ProfileRoute
+  '/create/list': typeof CreateListRoute
+  '/create/post': typeof CreatePostRoute
   '/reel/$id': typeof ReelIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/profile': typeof ProfileRoute
+  '/create/list': typeof CreateListRoute
+  '/create/post': typeof CreatePostRoute
   '/reel/$id': typeof ReelIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/profile': typeof ProfileRoute
+  '/create/list': typeof CreateListRoute
+  '/create/post': typeof CreatePostRoute
   '/reel/$id': typeof ReelIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/profile' | '/reel/$id'
+  fullPaths: '/' | '/profile' | '/create/list' | '/create/post' | '/reel/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/profile' | '/reel/$id'
-  id: '__root__' | '/' | '/profile' | '/reel/$id'
+  to: '/' | '/profile' | '/create/list' | '/create/post' | '/reel/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/profile'
+    | '/create/list'
+    | '/create/post'
+    | '/reel/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProfileRoute: typeof ProfileRoute
+  CreateListRoute: typeof CreateListRoute
+  CreatePostRoute: typeof CreatePostRoute
   ReelIdRoute: typeof ReelIdRoute
 }
 
@@ -82,12 +108,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReelIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/create/post': {
+      id: '/create/post'
+      path: '/create/post'
+      fullPath: '/create/post'
+      preLoaderRoute: typeof CreatePostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/create/list': {
+      id: '/create/list'
+      path: '/create/list'
+      fullPath: '/create/list'
+      preLoaderRoute: typeof CreateListRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProfileRoute: ProfileRoute,
+  CreateListRoute: CreateListRoute,
+  CreatePostRoute: CreatePostRoute,
   ReelIdRoute: ReelIdRoute,
 }
 export const routeTree = rootRouteImport
