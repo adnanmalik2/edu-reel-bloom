@@ -1,0 +1,22 @@
+{
+  "id": "/",
+  "name": "ETIF",
+  "short_name": "ETIF",
+  "description": "Ten-second learning clips",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/app-icon-192-light.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/app-icon-512-light.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
