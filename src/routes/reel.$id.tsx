@@ -31,7 +31,7 @@ export const Route = createFileRoute("/reel/$id")({
       ],
     };
   },
-  loader: ({ params }) => {
+  loader: ({ params }): { reel: NonNullable<ReturnType<typeof getReel>> } => {
     const reel = getReel(params.id);
     if (!reel) throw notFound();
     return { reel };
