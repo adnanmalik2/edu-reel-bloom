@@ -56,10 +56,13 @@ export const Route = createFileRoute("/reel/$id")({
 });
 
 function ReelView() {
-  const { reel } = Route.useLoaderData();
+  const { id } = Route.useParams();
+  const reel = getReel(id);
   const [playing, setPlaying] = useState(true);
   const [muted, setMuted] = useState(true);
   const [liked, setLiked] = useState(false);
+
+  if (!reel) throw notFound();
 
   const idx = reels.findIndex((r) => r.id === reel.id);
   const prev = reels[(idx - 1 + reels.length) % reels.length];
