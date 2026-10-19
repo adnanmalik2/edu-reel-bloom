@@ -9,25 +9,25 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ReelIdRouteImport } from './routes/reel.$id'
-import { Route as CreatePostRouteImport } from './routes/create.post'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as CreateListRouteImport } from './routes/create.list'
+import { Route as CreatePostRouteImport } from './routes/create.post'
+import { Route as ReelIdRouteImport } from './routes/reel.$id'
 
-const ProfileRoute = ProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ReelIdRoute = ReelIdRouteImport.update({
-  id: '/reel/$id',
-  path: '/reel/$id',
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreateListRoute = CreateListRouteImport.update({
+  id: '/create/list',
+  path: '/create/list',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CreatePostRoute = CreatePostRouteImport.update({
@@ -35,9 +35,9 @@ const CreatePostRoute = CreatePostRouteImport.update({
   path: '/create/post',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CreateListRoute = CreateListRouteImport.update({
-  id: '/create/list',
-  path: '/create/list',
+const ReelIdRoute = ReelIdRouteImport.update({
+  id: '/reel/$id',
+  path: '/reel/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -87,13 +87,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/profile': {
-      id: '/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -101,11 +94,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/reel/$id': {
-      id: '/reel/$id'
-      path: '/reel/$id'
-      fullPath: '/reel/$id'
-      preLoaderRoute: typeof ReelIdRouteImport
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/create/list': {
+      id: '/create/list'
+      path: '/create/list'
+      fullPath: '/create/list'
+      preLoaderRoute: typeof CreateListRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/create/post': {
@@ -115,11 +115,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreatePostRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/create/list': {
-      id: '/create/list'
-      path: '/create/list'
-      fullPath: '/create/list'
-      preLoaderRoute: typeof CreateListRouteImport
+    '/reel/$id': {
+      id: '/reel/$id'
+      path: '/reel/$id'
+      fullPath: '/reel/$id'
+      preLoaderRoute: typeof ReelIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
