@@ -26,6 +26,9 @@ export function useTheme() {
     root.classList.toggle("dark", theme === "dark");
     root.style.colorScheme = theme;
     window.localStorage.setItem("etif-theme", theme);
+    document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", `/favicon-${theme}.png`);
+    document.querySelector<HTMLLinkElement>('link[rel="apple-touch-icon"]')?.setAttribute("href", `/apple-touch-icon-${theme}.png`);
+    document.querySelector<HTMLLinkElement>('link[rel="manifest"]')?.setAttribute("href", `/manifest-${theme}.webmanifest`);
   }, [theme, mounted]);
 
   return { theme, setTheme, toggle: () => setTheme((t) => (t === "dark" ? "light" : "dark")) };
